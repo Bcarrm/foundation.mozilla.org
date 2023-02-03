@@ -281,12 +281,6 @@ def test(ctx):
     test_python(ctx)
 
 
-@task(aliases=["docker-test-red"])
-def test_redirects(ctx):
-    """Run python tests."""
-    manage(ctx, "test networkapi.wagtailpages.tests.test_page_move --keepdb")
-
-
 @task(aliases=["docker-test-python"])
 def test_python(ctx):
     """Run python tests."""
