@@ -287,6 +287,12 @@ def test_python(ctx):
     manage(ctx, "test networkapi")
 
 
+@task(aliases=["docker-fast-test"])
+def fast_test(ctx, args=""):
+    """Run tests with faster settings."""
+    manage(ctx, f"test networkapi --settings=networkapi.test_settings --parallel {args}")
+
+
 # Linting
 @task
 def lint(ctx):
