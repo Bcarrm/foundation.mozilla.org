@@ -10,7 +10,6 @@
 {% block hero %}
     {{ block.super }}
     <div class="editorial-content">
-
         {% with hero_featured_page=page.get_hero_featured_page %}
 
             {% if hero_featured_page %}
@@ -19,7 +18,12 @@
                 </div>
             {% endif %}
         {% endwith %}
+    </div>
+{% endblock hero %}
 
+{% block guts %}
+    {{ block.super }}
+    <div class="editorial-bottom-content tw-mb-24">
         {% with featured_advice_article=page.get_featured_advice_article %}
             {% if featured_advice_article %}
                 <div class="large:tw-container tw-my-16">
@@ -47,29 +51,21 @@
                             </div>
                         {% endif %}
                     {% endwith %}
-
-                    {% comment %}
-            We want to be able to use the CTA and have it show up on other pages, except for the homepage.
-            Displaying the CTA on the homepage should not happen until the redesign has been implemented.
-            See also: https://github.com/mozilla/foundation.mozilla.org/issues/9758.
-          {% endcomment %}
-                    {% comment %}
-          {% with cta=featured_cta %}
-            {% if cta %}
-              <div class="{{ row_item_classes }}">
-                {% include "fragments/buyersguide/call_to_action_box.html" with icon=cta.sticker_image heading=cta.title body=cta.content link_text=cta.link_label link_href=cta.get_target_url %}
-              </div>
-            {% endif %}
-          {% endwith %}
-          {% endcomment %}
+                    
+                    {% with cta=featured_cta %}
+                        {% if cta %}
+                        <div class="{{ row_item_classes }}">
+                            {% include "fragments/buyersguide/call_to_action_box.html" with icon=cta.sticker_image heading=cta.title body=cta.content link_text=cta.link_label link_href=cta.get_target_url %}
+                        </div>
+                        {% endif %}
+                    {% endwith %}
 
                 {% endwith %}
             </div>
         </div>
 
     </div>
-
-{% endblock hero %}
+{% endblock guts %}
 
 {% block extra_product_box_list_items %}
     <div
