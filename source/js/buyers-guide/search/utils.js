@@ -147,20 +147,18 @@ export class Utils {
   static toggleScrollAnimation() {
     gsap.set("figure.product-box.d-flex", { opacity: 0, y: 100 });
 
-    gsap.set("figure.product-box.d-flex:nth-child(-n+8)", {
+    gsap.set("figure.product-box.d-flex:nth-child(-n+5)", {
       opacity: 1,
       y: 0,
     });
 
-    // group products stagger animation based on mobile breakpoint
-    const responsiveBatch =
-      window.innerWidth > 991 ? 8 : window.innerWidth > 767 ? 6 : 4;
-
-    ScrollTrigger.batch("figure.product-box.d-flex:nth-child(n+8)", {
-      batchMax: responsiveBatch, // maximum batch size (targets)
+    ScrollTrigger.create({
+      trigger: "figure.product-box.d-flex:nth-child(n+4)",
       id: "scroll-products",
-      onEnter: (batch) =>
-        gsap.to(batch, {
+      start: "bottom bottom",
+      markers: true,
+      onEnter: () =>
+        gsap.to("figure.product-box.d-flex", {
           opacity: 1,
           y: 0,
           stagger: 0.1,
