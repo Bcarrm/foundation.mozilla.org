@@ -245,6 +245,7 @@ export class SearchFilter {
     Utils.showProductsForCategory(category);
     Utils.toggleCtaForCategory(category);
     this.categoryTitle.value = category;
+    window.scrollTo(0, 0);
     Utils.sortProductCards();
     Utils.moveCreepyFace();
     Utils.checkForEmptyNotice();
