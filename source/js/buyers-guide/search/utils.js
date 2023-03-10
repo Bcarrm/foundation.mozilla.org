@@ -145,7 +145,11 @@ export class Utils {
    * Scroll Animation used solely for the 'All Products' section
    */
   static toggleScrollAnimation() {
-    gsap.set("figure.product-box.d-flex", { opacity: 0, y: 100 });
+    const initialProducts = 26;
+    gsap.set("figure.product-box.d-flex", {
+      opacity: 0,
+      y: 100,
+    });
 
     gsap.set("figure.product-box.d-flex:nth-child(-n+5)", {
       opacity: 1,
@@ -156,14 +160,16 @@ export class Utils {
       trigger: "figure.product-box.d-flex:nth-child(n+4)",
       id: "scroll-products",
       start: "bottom bottom",
-      markers: true,
       onEnter: () =>
-        gsap.to("figure.product-box.d-flex", {
-          opacity: 1,
-          y: 0,
-          stagger: 0.1,
-          overwrite: true,
-        }),
+        gsap.to(
+          `figure.product-box.d-flex:nth-child(-n+${initialProducts + 1})`,
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.1,
+            overwrite: true,
+          }
+        ),
     });
   }
 
