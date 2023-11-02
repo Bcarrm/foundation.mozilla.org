@@ -14,11 +14,6 @@ certifi==2022.12.7
     # via
     #   -c requirements.txt
     #   requests
-    #   urllib3
-cffi==1.15.0
-    # via
-    #   -c requirements.txt
-    #   cryptography
 charset-normalizer==2.0.12
     # via
     #   -c requirements.txt
@@ -35,14 +30,9 @@ coverage[toml]==5.5
     #   pytest-cov
 coveralls==3.3.1
     # via -r dev-requirements.in
-cryptography==39.0.1
-    # via
-    #   -c requirements.txt
-    #   pyopenssl
-    #   urllib3
 cssbeautifier==1.14.7
     # via djlint
-django==3.2.19
+django==3.2.23
     # via
     #   -c requirements.txt
     #   django-debug-toolbar
@@ -72,7 +62,6 @@ idna==3.3
     # via
     #   -c requirements.txt
     #   requests
-    #   urllib3
 iniconfig==2.0.0
     # via pytest
 isort==5.12.0
@@ -105,16 +94,8 @@ ptvsd==4.3.2
     # via -r dev-requirements.in
 pycodestyle==2.7.0
     # via flake8
-pycparser==2.21
-    # via
-    #   -c requirements.txt
-    #   cffi
 pyflakes==2.3.1
     # via flake8
-pyopenssl==23.0.0
-    # via
-    #   -c requirements.txt
-    #   urllib3
 pyparsing==3.0.7
     # via packaging
 pytest==7.3.1
@@ -181,11 +162,7 @@ typing-extensions==4.4.0
     #   -c requirements.txt
     #   black
     #   mypy
-urllib3[secure]==1.26.15
+urllib3==1.26.15
     # via
     #   -c requirements.txt
     #   requests
-urllib3-secure-extra==0.1.0
-    # via
-    #   -c requirements.txt
-    #   urllib3
